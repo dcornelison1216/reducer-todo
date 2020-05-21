@@ -23,6 +23,9 @@ export const todoReducer = (state, action) => {
         ]
       )
 
+    case CLEAR_ALL:
+      return (initialTodoState)
+
     default:
       return state;
   }

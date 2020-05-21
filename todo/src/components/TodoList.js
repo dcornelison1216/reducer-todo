@@ -27,6 +27,7 @@ const TodoList = () => {
           placeholder='Add to your to-do list'
           value={newTodoText}
         />
+
         <button
           onClick={() => {
             dispatch({ type: 'ADD_TODO', payload: newTodoText})
@@ -35,7 +36,15 @@ const TodoList = () => {
         >
           Add
         </button>
-        <button>Clear All</button>
+
+        <button
+          onClick={() => {
+            dispatch({ type: 'CLEAR_ALL' })
+          }}
+        >
+          Clear All
+        </button>
+
         <button>Clear Completed</button>
       </header>
 
