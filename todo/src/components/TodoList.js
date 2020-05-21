@@ -61,6 +61,7 @@ const TodoList = () => {
           return (
             <p
               key={todo.id}
+              className={todo.completed ? 'complete' : null}
               onClick={e => {
                 dispatch({ type: 'TOGGLE_COMPLETED',id: todo.id, payload: true})
               }}

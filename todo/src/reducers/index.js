@@ -3,6 +3,21 @@ export const initialTodoState = [
     item: 'Learn about reducers',
     completed: false,
     id: 3892987589
+  },
+  {
+    item: 'Test1',
+    completed: false,
+    id: 3892987590
+  },
+  {
+    item: 'Test2',
+    completed: false,
+    id: 3892987591
+  },
+  {
+    item: 'Test3',
+    completed: false,
+    id: 3892987592
   }
 ]
 const ADD_TODO = 'ADD_TODO';
