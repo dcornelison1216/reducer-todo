@@ -37,13 +37,16 @@ export const todoReducer = (state, action) => {
 
     case TOGGLE_COMPLETED:
       const array = state.map(item => {
-        if(action.id === item.id) {
-          return {
-            ...item,
-            completed: !item.completed
-          }
-        } else return item
-      })
+        switch(action.id) {
+          case item.id:
+            return {
+              ...item,
+              completed: !item.completed
+            }
+          default:
+            return item;
+        }
+      });
       return array
 
     default:
