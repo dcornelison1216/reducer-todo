@@ -8,6 +8,7 @@ export const initialTodoState = [
 const ADD_TODO = 'ADD_TODO';
 const CLEAR_ALL = 'CLEAR_ALL';
 const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';
 
 export const todoReducer = (state, action) => {
   switch (action.type) {
@@ -27,13 +28,23 @@ export const todoReducer = (state, action) => {
       return (initialTodoState)
 
     case CLEAR_COMPLETED:
-
       const incompleteItems = state.filter(item => {
         if(item.completed === false) {
           return item
         }
       })
       return incompleteItems;
+
+    case TOGGLE_COMPLETED:
+      const array = state.map(item => {
+        if(action.id === item.id) {
+          return {
+            ...item,
+            completed: !item.completed
+          }
+        } else return item
+      })
+      return array
 
     default:
       return state;

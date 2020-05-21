@@ -59,7 +59,14 @@ const TodoList = () => {
       <div>
         {todoState.map(todo => {
           return (
-            <p key={todo.id}>{todo.item}</p>
+            <p
+              key={todo.id}
+              onClick={e => {
+                dispatch({ type: 'TOGGLE_COMPLETED',id: todo.id, payload: true})
+              }}
+            >
+              {todo.item}
+            </p>
           )
         })}
       </div>
