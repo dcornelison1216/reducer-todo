@@ -16,6 +16,8 @@ const TodoList = () => {
     setNewTodoText('');
   }
 
+
+
   return (
     <div>
       <header>
@@ -45,7 +47,13 @@ const TodoList = () => {
           Clear All
         </button>
 
-        <button>Clear Completed</button>
+        <button
+          onClick={() => {
+            dispatch({ type: 'CLEAR_COMPLETED'})
+          }}
+        >
+          Clear Completed
+        </button>
       </header>
 
       <div>
