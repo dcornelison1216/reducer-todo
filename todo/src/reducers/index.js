@@ -29,8 +29,11 @@ export const todoReducer = (state, action) => {
 
     case CLEAR_COMPLETED:
       const incompleteItems = state.filter(item => {
-        if(item.completed === false) {
-          return item;
+        switch(item.completed) {
+          case false:
+            return item
+          default:
+            return null
         }
       });
       return incompleteItems;
