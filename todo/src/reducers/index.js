@@ -3,21 +3,6 @@ export const initialTodoState = [
     item: 'Learn about reducers',
     completed: false,
     id: 3892987589
-  },
-  {
-    item: 'Test1',
-    completed: false,
-    id: 3892987590
-  },
-  {
-    item: 'Test2',
-    completed: false,
-    id: 3892987591
-  },
-  {
-    item: 'Test3',
-    completed: false,
-    id: 3892987592
   }
 ]
 const ADD_TODO = 'ADD_TODO';
@@ -40,14 +25,14 @@ export const todoReducer = (state, action) => {
       )
 
     case CLEAR_ALL:
-      return (initialTodoState)
+      return ([])
 
     case CLEAR_COMPLETED:
       const incompleteItems = state.filter(item => {
         if(item.completed === false) {
-          return item
+          return item;
         }
-      })
+      });
       return incompleteItems;
 
     case TOGGLE_COMPLETED:
@@ -64,4 +49,4 @@ export const todoReducer = (state, action) => {
     default:
       return state;
   }
-}
+};
