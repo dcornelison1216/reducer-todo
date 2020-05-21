@@ -6,11 +6,15 @@ import { todoReducer, initialTodoState } from '../reducers';
 const TodoList = () => {
   const [todoState, dispatch] = useReducer(todoReducer, initialTodoState);
 
-  const [newTodoText, setNewTodoText] = useState(initialTodoState);
+  const [newTodoText, setNewTodoText] = useState('');
 
   const handleChanges = e => {
     setNewTodoText(e.target.value);
   };
+
+  const clearInput = () => {
+    setNewTodoText('');
+  }
 
   return (
     <div>
@@ -20,10 +24,13 @@ const TodoList = () => {
           type='text'
           name='newTodo'
           onChange={handleChanges}
+          placeholder='Add to your to-do list'
+          value={newTodoText}
         />
         <button
           onClick={() => {
             dispatch({ type: 'ADD_TODO', payload: newTodoText})
+            clearInput();
           }}
         >
           Add
